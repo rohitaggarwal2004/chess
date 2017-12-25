@@ -1,0 +1,64 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+	<form>
+	<h1>Register</h1>
+	<label for="firstName">First Name:</label>
+	<input type="text" name="firstName" id ="firstName" placeholder="john" required title ="firstName">
+	<label for="lastName">Last Name :</label>
+	<input type="text" name="lastName" id ="lastName" placeholder="smith" required/>
+
+	<div>
+	<label for="male">Male</label>
+	<input type="radio" name="gender" value="male" id ="male">
+	<label for="female">Female</label>
+	<input type="radio" name="gender" value="female" id ="female">
+	<label for="other">Other</label>
+	<input type="radio" name="gender" id="other" value="other">
+	</div>
+	<div>
+
+	<label for="email">Email :</label>
+	<input type="email" name="lastName" id ="email" placeholder="xyz@xyz.com" required/>
+	<label for="password">Password :</label>
+	<input type="password" name="password" id ="password" placeholder="xyz"  minlength="5"  maxlength="10" required title=""length to be between 5 and 10 characters" />
+	</div>
+
+	<div>
+
+	<label>Birthday :</label>
+	<select name="month">
+		<option value="Jan">Jan</option>
+		<option value="feb">Feb</option>
+		<option value="march">March</option>
+	</select>
+	<select name="day">
+		<option value="1">1</option>
+		<option value="1">2</option>
+		<option value="3">3</option>
+	</select>
+	<select name="year">
+		<option value="1976">1976</option>
+		<option value="1977">1977</option>
+	</select>
+	</div>
+
+	<div>
+
+	<label for="agree">I agree to the term and condition:</label>
+	<input type="checkbox" name="agree" id="agree" required>
+		</div>
+
+	<input type="submit"  >
+
+	</form>
+
+
+
+
+
+	</body>
+	</html>
