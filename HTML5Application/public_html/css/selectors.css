@@ -1,0 +1,62 @@
+body {
+	background-color: #bdc3c7;
+}
+
+h1 {
+	color: yellow;
+}
+
+h2 {
+	color: orange;
+}
+
+li{
+	color: #0020ff;
+}
+p{
+	background-color: yellow;
+}
+input{
+	border-width: 3px;
+	border-color: red;
+	border-style: solid;
+}
+
+.hello{
+	background-color: white;
+}
+
+#special{
+	border-width: 2px;
+	border-color: blue;
+	border-style: solid;
+}
+
+div p {
+	font-size: 25px;
+}
+input[type="text"]
+{
+	background: gray;
+}
+
+div:nth-of-type(3) p
+{
+	background: pink;
+}
+
+
+div:nth-of-type(3) p:nth-of-type(4)
+{
+	background: pink;
+
+}
+
+input:checked{
+	margin-left: 50px;
+}
+
+
+label{
+	text-transform: uppercase;
+}

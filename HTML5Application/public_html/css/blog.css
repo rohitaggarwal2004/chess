@@ -1,0 +1,44 @@
+body{
+	border-width: 20px;
+	border-color: #bdc3c7;
+	border-style: solid;
+	padding: 20px;
+	width: 80%;
+}
+
+.para-uppercase {
+    text-transform: uppercase;
+    color: #3498db;	
+    letter-spacing: 0.5rem;
+}
+
+hr {
+  clear: all;
+  color: red;
+  background-color: gray;
+  height: 1px;
+  border-width: 0;
+}
+
+div p {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+h2
+{
+	color: #2c3e50;	
+}
+
+.newBorder
+{
+	
+	
+	border-left: 5px;
+	border-left-style: solid;;
+	border-left-color: #bdc3c7;
+	padding-left: 5px;
+
+
+
+}
