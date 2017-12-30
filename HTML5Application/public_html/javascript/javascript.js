@@ -40,7 +40,21 @@ function printAtConsole()
 }
 
 function isUniform(arr)
-{
+{	
+    var length = arr.length;
+	if(length>1)
+	{
+		
+		for(var i=0;i<arr.length-1;i++)
+		{
+			if(arr[i] != arr[i+1])
+			{
+				return false;
+
+			}
+		}
+		return true;
+	}
 }
 
 function sunArray(arr)
@@ -49,6 +63,21 @@ function sunArray(arr)
 
 function max(arr)
 {
+
+	var length = arr.length;
+	if(length>1)
+	{
+		var max = arr[0];
+	
+		for(var i=1;i<arr.length;i++)
+		{
+			if(max <arr[i])
+			{
+				max = arr[i];
+			}
+		}
+		return max;
+	}
 }
 
 
