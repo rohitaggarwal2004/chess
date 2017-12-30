@@ -1,15 +1,10 @@
 var count = 5;
 var stop = false;
 var background = "white";
-// document.getElementById("button1").addEventListener("click",click1);
-// document.getElementById("button2").addEventListener("click",click2);
-// document.getElementById("reset").addEventListener("click",reset);
-// document.getElementById("name").addEventListener("blur",blur1);
-
 document.querySelector("#button1").addEventListener("click",click1);
 document.getElementById("button2").addEventListener("click",click2);
 document.querySelector("#reset").addEventListener("click",reset);
-document.querySelector("#name").addEventListener("blur",blur1);
+document.querySelector("#name").addEventListener("change",blur1);
 
 function click1()
 {	
@@ -30,7 +25,6 @@ function _click(id)
 		if(Number(span.textContent) == count)
 		{
 			stop=true;
-			// span.style.background= "green";
 			span.classList.add("winner");
 		}
 	}
@@ -41,8 +35,6 @@ function reset()
 {	
 	document.getElementById("span1").textContent = Number(0);
 	document.getElementById("span2").textContent = Number(0);
-	// document.getElementById("span1").style.background= "white";
-	// document.getElementById("span2").style.background= "white";
 	document.querySelector("#span1").classList.remove("winner");
 	document.querySelector("#span2").classList.remove("winner");
 	stop = false;
@@ -51,9 +43,8 @@ function reset()
 
 function blur1()
 {	
-
 	reset();
 	count =Number(document.getElementById("name").value);
 	document.getElementById("span3").textContent = count;
-	
+
 }
