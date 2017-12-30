@@ -1,6 +1,11 @@
 var count = 5;
 var stop = false;
 var background = "white";
+document.getElementById("button1").addEventListener("click",click1);
+document.getElementById("button2").addEventListener("click",click2);
+document.getElementById("reset").addEventListener("click",reset);
+document.getElementById("name").addEventListener("blur",blur1);
+
 function click1()
 {	
 	_click("span1");
@@ -39,12 +44,8 @@ function reset()
 function blur1()
 {	
 
+	reset();
 	count =Number(document.getElementById("name").value);
-	document.getElementById("span1").textContent = Number(0);
-	document.getElementById("span1").textContent = Number(0);
 	document.getElementById("span3").textContent = count;
-	document.getElementById("span1").style.background= "white";
-	document.getElementById("span2").style.background= "white";	
-	stop = false;
-	background = "white";
+	
 }
