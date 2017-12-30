@@ -1,6 +1,6 @@
 var count = 5;
 var stop = false;
-var background = white;
+var background = "white";
 function click1()
 {	
 	_click("span1");
@@ -33,7 +33,7 @@ function reset()
 	document.getElementById("span1").style.background= "white";
 	document.getElementById("span2").style.background= "white";
 	stop = false;
-	background = white;
+	background = "white";
 }
 
 function blur1()
@@ -43,6 +43,8 @@ function blur1()
 	document.getElementById("span1").textContent = Number(0);
 	document.getElementById("span1").textContent = Number(0);
 	document.getElementById("span3").textContent = count;
+	document.getElementById("span1").style.background= "white";
+	document.getElementById("span2").style.background= "white";	
 	stop = false;
-	background = white;
+	background = "white";
 }
