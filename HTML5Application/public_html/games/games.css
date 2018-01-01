@@ -17,8 +17,7 @@ html, body {
 
 #div2
 {
-	background-color: rgb(255,255,255);
-	text-align: center;
+
 	color: rgb(88,137,189);
 
 }
@@ -70,6 +69,7 @@ h1,h5
 	margin-bottom: 10px;
 	border-width: 0px 0px 0px 0px;
 	margin-top: 20px;
+	margin-right: 0px;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
