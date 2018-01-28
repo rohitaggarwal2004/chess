@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Find Employee</h1>
+        <a href="logout.mvc">Log out</a>
     </body>
 </html>

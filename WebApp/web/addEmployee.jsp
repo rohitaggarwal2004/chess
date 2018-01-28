@@ -21,5 +21,6 @@
             <input type="text" id="password" name="password" required placeholder="password"/>
             <input type="submit" name="Add New Emplooyee"/>
         </form>
+        <a href="logout.mvc">Log out</a>
     </body>
 </html>
