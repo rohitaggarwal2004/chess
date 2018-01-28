@@ -7,6 +7,7 @@ package serviceImpl;
 
 import dao.EmployeeDao;
 import dao.impl.EmployeeDaoImpl;
+import java.util.List;
 import pojo.Employee;
 import sevice.EmployeeService;
 
@@ -15,6 +16,10 @@ import sevice.EmployeeService;
  * @author roaggarw
  */
 public class EmployeeServiceImpl implements EmployeeService {
+
+    public EmployeeServiceImpl() {
+
+    }
 
     @Override
     public Employee addEmployee(Employee employee) {
@@ -34,6 +39,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee findEmployee(String id) {
         EmployeeDao employeeDao = new EmployeeDaoImpl();
         return employeeDao.findEmployee(id);
+    }
+
+    @Override
+    public List<Employee> getAllEmplloyee() {
+        EmployeeDao employeeDao = new EmployeeDaoImpl();
+        return employeeDao.getAllEmplloyee();
     }
 
 }

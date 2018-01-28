@@ -44,6 +44,11 @@ public class Employee implements Serializable {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "Name " + name + "password " + password;
+    }
+
     private String Id;
     private String name;
     private String password;

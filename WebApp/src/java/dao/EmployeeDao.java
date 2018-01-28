@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.List;
 import pojo.Employee;
 
 /**
@@ -19,4 +20,5 @@ public interface EmployeeDao {
 
     public Employee findEmployee(String id);
 
+    public List<Employee> getAllEmplloyee();
 }

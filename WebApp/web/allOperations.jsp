@@ -17,6 +17,7 @@
             <a href="addEmployee.mvc">Add Employee</a> <br>
             <a href="deleteEmployee.mvc">Delete Employee</a> <br>
             <a href="findEmployee.mvc">Find Employee</a><br>
+             <a href="listEmployee.mvc">List Employee</a><br>
         </form>    
  <a href="logout.mvc">Log out</a>
     </body>

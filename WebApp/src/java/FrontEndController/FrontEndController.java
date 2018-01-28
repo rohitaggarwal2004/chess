@@ -7,18 +7,24 @@ package FrontEndController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.util.List;
+import javax.naming.Context;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pojo.Employee;
+import serviceImpl.EmployeeServiceImpl;
+import sevice.EmployeeService;
 
 /**
  *
  * @author roaggarw
  */
 public class FrontEndController extends HttpServlet {
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -45,6 +51,17 @@ public class FrontEndController extends HttpServlet {
 
         } else if (path.contains("findEmployee")) {
             request.getRequestDispatcher("findEmployee.jsp").forward(request, response);
+
+        } else if (path.contains("listEmployee")) {
+            //
+            EmployeeService employeeService  = new EmployeeServiceImpl();
+            List<Employee> list = employeeService.getAllEmplloyee();
+            for(Employee employee:list)
+            {
+                System.out.println("employee " + employee.toString());
+            }
+            //
+            request.getRequestDispatcher("listEmployee.jsp").forward(request, response);
 
         } else if (path.contains("logout")) {
             session.invalidate();

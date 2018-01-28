@@ -6,6 +6,7 @@
 package sevice;
 
 import pojo.Employee;
+import java.util.List;
 
 /**
  *
@@ -18,4 +19,6 @@ public interface EmployeeService {
     public boolean deleteEmployee(String id);
 
     public Employee findEmployee(String id);
+
+    public List<Employee> getAllEmplloyee();
 }
