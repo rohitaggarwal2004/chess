@@ -48,6 +48,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public List<Employee> getAllEmplloyee() {
+        List<Employee> list = new ArrayList<Employee>();
         Context ctx = null;
         Connection con = null;
         Statement stmt = null;
@@ -62,10 +63,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             rs = stmt.executeQuery("select * from Employee");
 
             while (rs.next()) {
-                System.out.println(rs.getString("id"));
-                System.out.println(rs.getString("name"));
-                System.out.println(rs.getString("password"));
-
+                list.add(new Employee(rs.getString("id"), rs.getString("name"), rs.getString("password")));
             }
 
         } catch (NamingException e) {
@@ -84,8 +82,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
                 System.out.println("Exception in closing Context");
             }
         }
-
-        return new ArrayList<Employee>();
+        return list;
     }
 
 }

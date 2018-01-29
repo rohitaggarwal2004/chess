@@ -13,6 +13,10 @@ import java.io.Serializable;
  */
 public class Employee implements Serializable {
 
+    public Employee() {
+
+    }
+
     public Employee(String id, String name, String password) {
         this.Id = id;
         this.password = password;

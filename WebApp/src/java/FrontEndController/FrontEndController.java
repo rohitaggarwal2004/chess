@@ -24,7 +24,7 @@ import sevice.EmployeeService;
  * @author roaggarw
  */
 public class FrontEndController extends HttpServlet {
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -53,14 +53,12 @@ public class FrontEndController extends HttpServlet {
             request.getRequestDispatcher("findEmployee.jsp").forward(request, response);
 
         } else if (path.contains("listEmployee")) {
-            //
-            EmployeeService employeeService  = new EmployeeServiceImpl();
+            EmployeeService employeeService = new EmployeeServiceImpl();
             List<Employee> list = employeeService.getAllEmplloyee();
-            for(Employee employee:list)
-            {
+            for (Employee employee : list) {
                 System.out.println("employee " + employee.toString());
             }
-            //
+            request.setAttribute("employees", list);
             request.getRequestDispatcher("listEmployee.jsp").forward(request, response);
 
         } else if (path.contains("logout")) {
