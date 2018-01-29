@@ -6,10 +6,8 @@
 package FrontEndController;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
-import javax.naming.Context;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,11 +44,33 @@ public class FrontEndController extends HttpServlet {
             }
         } else if (path.contains("addEmployee")) {
             request.getRequestDispatcher("addEmployee.jsp").forward(request, response);
+        } else if (path.contains("mainpage")) {
+            request.getRequestDispatcher("allOperations.jsp").forward(request, response);
+        } else if (path.contains("saveEmployee")) {
+            String name = request.getParameter("name");
+            String password = request.getParameter("password");
+            String id = request.getParameter("id");
+            Employee employee = new Employee(id, name, password);
+            //
+            EmployeeService employeeService = new EmployeeServiceImpl();
+            List<Employee> list = new ArrayList();
+            list.add(employeeService.addEmployee(employee));
+            request.setAttribute("employees", list);
+            request.getRequestDispatcher("listEmployee.jsp").forward(request, response);
+            //
         } else if (path.contains("deleteEmployee")) {
             request.getRequestDispatcher("deleteEmployee.jsp").forward(request, response);
 
         } else if (path.contains("findEmployee")) {
             request.getRequestDispatcher("findEmployee.jsp").forward(request, response);
+
+        } else if (path.contains("search")) {
+            EmployeeService employeeService = new EmployeeServiceImpl();
+            List<Employee> list = new ArrayList();
+            String id = request.getParameter("id");
+            list.add(employeeService.findEmployee(id));
+            request.setAttribute("employees", list);
+            request.getRequestDispatcher("listEmployee.jsp").forward(request, response);
 
         } else if (path.contains("listEmployee")) {
             EmployeeService employeeService = new EmployeeServiceImpl();

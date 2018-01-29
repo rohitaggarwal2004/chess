@@ -13,12 +13,13 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="mainpage.mvc">Main Page</a> <br>
         <form> 
             <a href="addEmployee.mvc">Add Employee</a> <br>
             <a href="deleteEmployee.mvc">Delete Employee</a> <br>
             <a href="findEmployee.mvc">Find Employee</a><br>
-             <a href="listEmployee.mvc">List Employee</a><br>
+            <a href="listEmployee.mvc">List Employee</a><br>
         </form>    
- <a href="logout.mvc">Log out</a>
+        <%@include file="logout.jsp" %>
     </body>
 </html>

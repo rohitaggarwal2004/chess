@@ -1,6 +1,6 @@
 <%-- 
-    Document   : deleteEmployee
-    Created on : Jan 28, 2018, 4:57:45 PM
+    Document   : logout.jsp
+    Created on : Jan 29, 2018, 2:04:43 PM
     Author     : roaggarw
 --%>
 
@@ -12,8 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <a href="mainpage.mvc">Main Page</a> <br>
-        <h1>Delete Employee</h1>
-         <%@include file="logout.jsp" %>
+        <a href="logout.mvc">Log out</a>
     </body>
 </html>

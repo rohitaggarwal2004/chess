@@ -11,15 +11,9 @@ import pojo.Employee;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -33,7 +27,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public boolean addEmployee(Employee employee) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Context ctx = null;
+        Connection con = null;
+        PreparedStatement pstmt = null;
+
+        boolean isAdded = false;
+        try {
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/TestDB");
+            con = ds.getConnection();
+            String query = " insert into employee (id, name, password )"
+                    + " values (?, ?, ?)";
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, employee.getId());
+            pstmt.setString(2, employee.getName());
+            pstmt.setString(3, employee.getPassword());
+            pstmt.execute();
+            isAdded = true;
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+
+                pstmt.close();
+                con.close();
+                ctx.close();
+            } catch (SQLException e) {
+                System.out.println("Exception in closing DB resources");
+            } catch (NamingException e) {
+                System.out.println("Exception in closing Context");
+            }
+        }
+        return isAdded;
     }
 
     @Override
@@ -43,7 +70,40 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public Employee findEmployee(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Context ctx = null;
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        Employee emp = null;
+        try {
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/TestDB");
+            con = ds.getConnection();
+            String selectSQL = "select * from Employee where id =" + id;
+            preparedStatement = con.prepareStatement(selectSQL);
+            rs = preparedStatement.executeQuery(selectSQL);
+            if (rs.next()) {
+                emp = new Employee(rs.getString("id"), rs.getString("name"), rs.getString("password"));
+            }
+
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                preparedStatement.close();
+                con.close();
+                ctx.close();
+            } catch (SQLException e) {
+                System.out.println("Exception in closing DB resources");
+            } catch (NamingException e) {
+                System.out.println("Exception in closing Context");
+            }
+        }
+        return emp;
+
     }
 
     @Override

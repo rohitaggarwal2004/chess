@@ -24,8 +24,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee addEmployee(Employee employee) {
         EmployeeDao employeeDao = new EmployeeDaoImpl();
-        employeeDao.addEmployee(employee);
-        return findEmployee(employee.getId());
+        if (employeeDao.addEmployee(employee)) {
+            return findEmployee(employee.getId());
+        } else {
+            throw new RuntimeException("----------");
+        }
 
     }
 

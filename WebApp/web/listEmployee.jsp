@@ -15,7 +15,13 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <table>
+          <a href="mainpage.mvc">Main Page</a> <br>
+        <table border="1">
+            <tr>
+                <th>Id(s)</th>
+                <th>Name</th>
+                <th>Password?</th>
+            </tr>
             <c:forEach items="${employees}" var="employee">
                 <tr>
                     <td>${employee.id}</td>
@@ -24,5 +30,6 @@
         </tr>
     </c:forEach>
 </table>
+<%@include file="logout.jsp" %>
 </body>
 </html>

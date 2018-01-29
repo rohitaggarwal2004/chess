@@ -12,15 +12,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form>
-
+         <a href="mainpage.mvc">Main Page</a> <br>
+        <form action="saveEmployee.mvc">
             <h1>Add New Employee</h1>
+            <label for ="id"> Employee Id</label>
+            <input type="text" id="id" name="id" required placeholder="@id"/>
             <label for ="name"> New Employee Name </label>
             <input type="text" id="name" name="name" required placeholder="myname"/>
             <label for ="password"> Password</label>
             <input type="text" id="password" name="password" required placeholder="password"/>
             <input type="submit" name="Add New Emplooyee"/>
         </form>
-        <a href="logout.mvc">Log out</a>
+        <%@include file="logout.jsp" %>
     </body>
 </html>
